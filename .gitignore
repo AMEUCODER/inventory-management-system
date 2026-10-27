@@ -1,3 +1,19 @@
-# Environment variables
+# Environment files (keep the *.example templates)
 .env
 *.env
+.env.local
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Local databases and build output
+db.sqlite3
+*.sqlite3
+staticfiles/
+node_modules/
+.next/
+out/
+*.tsbuildinfo
