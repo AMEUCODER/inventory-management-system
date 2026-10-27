@@ -1,5 +1,7 @@
 # Inventory Management System
 
+[![CI](https://github.com/AMEUCODER/inventory-management-system/actions/workflows/ci.yml/badge.svg)](https://github.com/AMEUCODER/inventory-management-system/actions/workflows/ci.yml)
+
 A full-stack inventory app built with **Django (REST API)** and **Next.js (React UI)**.
 
 - An **admin** controls everything: products, stock, users, and the full transaction history.
@@ -83,7 +85,7 @@ Roles are checked against the database on **every request**, so deactivating or 
 ## Project structure
 
 ```
-inventory-system/
+inventory-management-system/
 ├── backend/
 │   ├── config/                 # Django settings, urls
 │   ├── inventory/
@@ -93,19 +95,38 @@ inventory-system/
 │   │   ├── permissions.py      # IsAdminRole
 │   │   ├── tests.py            # 28 tests
 │   │   └── management/commands/seed_demo.py
+│   ├── Dockerfile
 │   ├── requirements.txt
-│   └── .env
-└── frontend/
-    ├── src/app/                # Pages: login, scan, history, admin/*
-    ├── src/components/         # Scanner, Modal, TransactionsTable, ...
-    ├── src/lib/                # API client (JWT + refresh), auth context
-    ├── next.config.mjs         # /api/* proxy to Django
-    └── .env.local.example
+│   └── .env.example            # copy to .env
+├── frontend/
+│   ├── src/app/                # Pages: login, scan, history, admin/*
+│   │   └── api/[...path]/      # runtime proxy: /api/* -> Django (BACKEND_URL)
+│   ├── src/components/         # Scanner, Modal, TransactionsTable, ...
+│   ├── src/lib/                # API client (JWT + refresh), auth context
+│   ├── Dockerfile
+│   └── .env.local.example      # copy to .env.local
+├── screenshots/
+├── .github/workflows/ci.yml    # backend tests + frontend typecheck/build
+└── docker-compose.yml
 ```
 
 ## Quick start
 
 You need **Python 3.10+** and **Node.js 18.18+**.
+
+### Option A: Docker (one command)
+
+```bash
+docker compose up --build
+```
+
+- App: <http://localhost:5173> (Next.js frontend, proxies `/api/*` to Django)
+- API: <http://localhost:8000/api>
+- Demo logins are created on start: `admin` / `admin12345` and `cashier` / `cashier12345`.
+
+Set `SEED_DEMO=0` (for example `SEED_DEMO=0 docker compose up`) to skip the demo accounts and sample products. The compose file runs development servers and is meant for local use; see *Deploying to production* below for real deployments.
+
+### Option B: run it manually
 
 ### 1. Backend
 
@@ -114,6 +135,7 @@ cd backend
 python -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
+cp .env.example .env               # optional in development, required values for production
 
 python manage.py migrate
 python manage.py seed_demo         # demo accounts + 8 sample products (dev only)

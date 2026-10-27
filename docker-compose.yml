@@ -9,10 +9,13 @@ services:
       - ./backend:/app
     environment:
       - PYTHONUNBUFFERED=1
+      # 1 = create demo users + sample products on start (admin / admin12345).
+      # Run `SEED_DEMO=0 docker compose up` for anything that isn't a local demo.
+      - SEED_DEMO=${SEED_DEMO:-1}
       - DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,[::1],backend,0.0.0.0
       # Safety net: allow the browser to call Django directly from :5173 if any
       # frontend code bypasses the Next.js proxy. Match the port the frontend
-      # is actually exposed on (5173, not the README's 3000).
+      # is exposed on (5173 in Docker; 3000 when running `npm run dev` yourself).
       - CORS_ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000,http://localhost:5173,http://127.0.0.1:5173
     networks:
       - inventory-network
@@ -30,8 +33,7 @@ services:
     environment:
       # Only the server-side proxy needs to know where Django lives.
       # Browser calls go to /api/* on :5173 and Next rewrites them here.
-      # The variable name must match what next.config.mjs reads (BACKEND_URL,
-      # per the README) — not INTERNAL_API_URL.
+      # The variable name must match what the proxy route reads (BACKEND_URL).
       - BACKEND_URL=http://backend:8000
       # Explicitly empty so a bind-mounted .env.local on the host cannot
       # override this and bypass the Next.js /api/* proxy.
@@ -46,4 +48,4 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.28.0.0/16
+        - subnet: 172.28.0.0/16

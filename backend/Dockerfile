@@ -20,5 +20,9 @@ COPY . /app/
 
 EXPOSE 8000
 
-# Run migrations, seed demo data, and start server
-CMD ["sh", "-c", "python manage.py migrate && python manage.py seed_demo && python manage.py runserver 0.0.0.0:8000"]
+# Demo accounts/products are only created when SEED_DEMO=1 (docker-compose sets it
+# for the one-command demo; leave it unset/0 for anything real).
+ENV SEED_DEMO=0
+
+# Run migrations, optionally seed demo data, then start the server
+CMD ["sh", "-c", "python manage.py migrate && if [ \"$SEED_DEMO\" = \"1\" ]; then python manage.py seed_demo; fi && python manage.py runserver 0.0.0.0:8000"]
