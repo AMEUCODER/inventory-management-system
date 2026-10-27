@@ -12,6 +12,37 @@ A full-stack inventory app built with **Django (REST API)** and **Next.js (React
 └────────────────────┘             └────────────────────┘   └──────────┘
 ```
 
+## Screenshots
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="screenshots/scan.png" alt="Scan page with SELL / RETURN switch and camera scanner"/>
+      <br /><sub><b>Scan:</b> SELL / RETURN switch, live camera scanner and session totals</sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="screenshots/Products.png" alt="Admin products list with stock levels and actions"/>
+      <br /><sub><b>Products:</b> search, stock status, adjust stock, barcode labels</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <img src="screenshots/transactions.png" alt="Transaction history with filters"/>
+      <br /><sub><b>Transactions:</b> full audit trail with type, date and text filters</sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="screenshots/Users.png" alt="Admin users list with roles and status"/>
+      <br /><sub><b>Users:</b> roles, active status and last login</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2">
+      <img src="screenshots/Django%20dash.png" alt="Django administration site" width="50%"/>
+      <br /><sub><b>Django admin:</b> emergency back-office at <code>/django-admin/</code></sub>
+    </td>
+  </tr>
+</table>
+
 ## Features
 
 **Admin**
