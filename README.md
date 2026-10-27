@@ -35,12 +35,17 @@ A full-stack inventory app built with **Django (REST API)** and **Next.js (React
       <br /><sub><b>Users:</b> roles, active status and last login</sub>
     </td>
   </tr>
-  <tr>
-    <td align="center" colspan="2">
-      <img src="screenshots/Django%20dash.png" alt="Django administration site" width="50%"/>
-      <br /><sub><b>Django admin:</b> emergency back-office at <code>/django-admin/</code></sub>
+   <tr>
+    <td align="center" width="50%">
+      <img src="screenshots/Django dash.png" alt="Transaction history with filters"/>
+      <br /><sub><b>Transactions:</b> full audit trail with type, date and text filters</sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="screenshots/dashboard.png" alt="Admin users list with roles and status"/>
+      <br /><sub><b>Users:</b> roles, active status and last login</sub>
     </td>
   </tr>
+  <tr>
 </table>
 
 ## Features
