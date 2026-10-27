@@ -58,7 +58,7 @@ inventory-system/
 │   │   ├── tests.py            # 28 tests
 │   │   └── management/commands/seed_demo.py
 │   ├── requirements.txt
-│   └── .env.example
+│   └── .env
 └── frontend/
     ├── src/app/                # Pages: login, scan, history, admin/*
     ├── src/components/         # Scanner, Modal, TransactionsTable, ...
