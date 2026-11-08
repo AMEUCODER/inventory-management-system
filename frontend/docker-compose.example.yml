@@ -1,0 +1,30 @@
+# Example only: adapt the service names / paths to your own compose file.
+# What matters is marked with  <-- IMPORTANT
+services:
+  backend:
+    build: ./backend
+    # Must listen on 0.0.0.0, otherwise other containers can't reach it
+    command: python manage.py runserver 0.0.0.0:8000      # <-- IMPORTANT
+    environment:
+      DJANGO_DEBUG: "1"
+      # Django rejects (HTTP 400) any Host it doesn't know. The frontend calls it
+      # as "backend:8000", so the service name must be listed.
+      DJANGO_ALLOWED_HOSTS: localhost,127.0.0.1,backend   # <-- IMPORTANT
+      DATABASE_PATH: /data/db.sqlite3                     # keeps users across rebuilds
+    volumes:
+      - inventory_data:/data
+    ports:
+      - "8000:8000"        # optional: only to open /django-admin/ from your browser
+
+  frontend:
+    build: ./frontend
+    environment:
+      # Service name of the backend above + its internal port
+      BACKEND_URL: http://backend:8000                    # <-- IMPORTANT
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+volumes:
+  inventory_data:
