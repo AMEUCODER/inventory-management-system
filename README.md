@@ -12,6 +12,55 @@ A full-stack inventory app built with **Django (REST API)** and **Next.js (React
 └────────────────────┘             └────────────────────┘   └──────────┘
 ```
 
+## Screenshots
+
+<sub>Click any screenshot to open the code behind it.</sub>
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <a href="https://github.com/AMEUCODER/inventory-management-system/tree/main/frontend/src/app/%28app%29/admin">
+        <img src="screenshots/dashboard.png" alt="Admin dashboard with daily stats, 7-day chart and top sellers" />
+      </a>
+      <br /><sub><b>Dashboard</b><br/>stats, 7-day chart, restock list, top sellers</sub>
+    </td>
+    <td align="center" width="50%">
+      <a href="https://github.com/AMEUCODER/inventory-management-system/tree/main/frontend/src/app/%28app%29/scan">
+        <img src="screenshots/scan.png" alt="Scan page with SELL / RETURN switch and camera scanner" />
+      </a>
+      <br /><sub><b>Scan</b><br/>SELL / RETURN switch and live camera scanner</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <a href="https://github.com/AMEUCODER/inventory-management-system/tree/main/frontend/src/app/%28app%29/admin/products">
+        <img src="screenshots/Products.png" alt="Admin products list with stock levels and actions" />
+      </a>
+      <br /><sub><b>Products</b><br/>search, stock status, adjustments, barcode labels</sub>
+    </td>
+    <td align="center" width="50%">
+      <a href="https://github.com/AMEUCODER/inventory-management-system/tree/main/frontend/src/app/%28app%29/admin/transactions">
+        <img src="screenshots/transactions.png" alt="Transaction history with filters" />
+      </a>
+      <br /><sub><b>Transactions</b><br/>full audit trail with type, date and text filters</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <a href="https://github.com/AMEUCODER/inventory-management-system/tree/main/frontend/src/app/%28app%29/admin/users">
+        <img src="screenshots/Users.png" alt="Admin users list with roles and status" />
+      </a>
+      <br /><sub><b>Users</b><br/>roles, active status and last login</sub>
+    </td>
+    <td align="center" width="50%">
+      <a href="https://github.com/AMEUCODER/inventory-management-system/tree/main/backend/inventory">
+        <img src="screenshots/Django%20dash.png" alt="Django administration site" />
+      </a>
+      <br /><sub><b>Django admin</b><br/>back-office for users, products and transactions</sub>
+    </td>
+  </tr>
+</table>
+
 ## Features
 
 **Admin**
