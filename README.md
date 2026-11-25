@@ -314,3 +314,13 @@ A checklist rather than a one-click recipe, because hosting differs:
 | Login works but pages show network errors | Django isn't running, or `BACKEND_URL` is wrong |
 | `ImproperlyConfigured: Set DJANGO_SECRET_KEY` | You set `DJANGO_DEBUG=0` without a secret key |
 | Phone can't load the dev server | Set `ALLOWED_DEV_ORIGINS` to your LAN IP and run `npm run dev:https` |
+
+## To do
+
+- [ ] Add a GitHub Actions workflow that runs the 28 backend tests and the frontend typecheck on every push
+- [ ] Add `.env.example` files for the backend and the frontend
+- [ ] Document the Docker Compose setup in "Quick start" (the repo has a `docker-compose.yml` and Dockerfiles)
+- [ ] Allow a quantity per scan (the data model already stores a signed quantity)
+- [ ] Add receipts or baskets so returns can be tied to a sale
+- [ ] Move the JWTs from `localStorage` to `httpOnly` cookies
+- [ ] Add a deployed demo link or a short demo GIF
